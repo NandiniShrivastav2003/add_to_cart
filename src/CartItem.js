@@ -1,24 +1,33 @@
 import React from "react";
 class CartItem extends React.Component {
-  constructor(){
-    super();
-    this.state={
-      price:999,
-      title:' Mobile Phone',
-      qty:1,
-      img:''
-    }
-    this.CartIncrease = this.CartIncrease.bind(this)
-  }
+  // constructor(){
+  //   super();
+   
+    // this.CartIncrease = this.CartIncrease.bind(this)
+    // this.CartDecrease = this.CartDecrease.bind(this)
+  // }
   CartIncrease(){
     console.log('clicked');
-    console.log(this.state.qty);
+    
    this.setState((prevState) => {
+    console.log(this.state);
      return {qty : prevState.qty + 1}
+    })
+   
+  }
+  CartDecrease(){
+    console.log('clicked');
+    console.log(this.state.qty);
+    if(this.state.qty == 0){
+      return ;
+    }
+   this.setState((prevState) => {
+     return {qty : prevState.qty - 1}
     })
   }
   render() {
-    const {price,title,qty}=this.state;
+    const {price,title,qty}=this.props;
+
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -31,8 +40,8 @@ class CartItem extends React.Component {
           <div className="cart-item-actions">
             <img src="https://cdn-icons-png.flaticon.com/512/753/753317.png" alt="increase" 
             onClick={this.CartIncrease.bind(this)} />
-            <img src="https://cdn-icons.flaticon.com/png/512/1665/premium/1665714.png?token=exp=1659797626~hmac=1a820a2faaf6b81a5415f0c0e97cf766" alt="decrease"  />
-            <img src="https://cdn-icons.flaticon.com/png/512/4225/premium/4225670.png?token=exp=1659797649~hmac=b4891eec90192a924a638fc18330219a" alt="delete" />
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828899.png" alt="decrease"  onClick={this.CartDecrease.bind(this)} />
+            <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" alt="delete" />
           </div>
         </div>
       </div>

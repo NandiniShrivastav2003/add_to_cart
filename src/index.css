@@ -17,10 +17,11 @@ code {
 }
 
 .cart-item {
-  position: absolute;
+  /* position: absolute;
   left: 186px;
-  line-height: 22px;
+  line-height: 22px; */
   display: flex;
+  margin: 29px;
 }
 
 .right-block {
@@ -35,4 +36,8 @@ margin-top: 10px;
 }
 .cart-item-actions :hover{
   cursor: pointer;
+}
+.cart{
+  display:flex;
+  flex-direction: column;
 }
